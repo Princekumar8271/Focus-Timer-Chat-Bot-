@@ -1,0 +1,221 @@
+/* Main styles for the Focus Timer Bot - Dark Theme */
+
+/* 3D Brain Animation Background - optimized for performance */
+#brain-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+    will-change: transform; /* Hardware acceleration hint */
+    transform: translateZ(-10px); /* Push background further back */
+}
+
+/* Ensure content is visible over the 3D background - optimized for performance */
+.content-container {
+    position: relative;
+    z-index: 10;
+    background-color: rgba(2, 2, 4, 0.92); /* Darker semi-transparent background */
+    border-radius: 1rem;
+    backdrop-filter: blur(8px); /* Increased blur for better text contrast */
+    -webkit-backdrop-filter: blur(8px); /* For Safari support */
+    box-shadow: 0 8px 32px rgba(170, 0, 255, 0.5); /* Enhanced purple glow */
+    will-change: transform, opacity; /* Hardware acceleration hint */
+    transform: translateZ(20px) perspective(1000px); /* Enhanced 3D effect */
+    border: 1px solid rgba(170, 85, 255, 0.3); /* More visible purple border */
+    transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+}
+
+.content-container:hover {
+    transform: translateZ(25px) perspective(1000px) scale(1.01);
+    box-shadow: 0 12px 48px rgba(170, 0, 255, 0.6);
+}
+
+/* Text color overrides for dark theme */
+.content-container h1, .content-container h2 {
+    color: rgba(200, 130, 255, 1) !important; /* Brighter purple headers */
+    text-shadow: 0 0 8px rgba(170, 0, 255, 0.3); /* Subtle glow for headers */
+    font-weight: 700; /* Bolder headers */
+}
+
+.content-container #timer {
+    color: rgba(255, 255, 255, 1) !important; /* Pure white timer text */
+    text-shadow: 0 0 12px rgba(170, 0, 255, 0.6); /* Enhanced glow effect */
+    font-weight: 700; /* Bolder timer text */
+}
+
+.content-container #state, .content-container #task {
+    color: rgba(230, 230, 255, 1) !important; /* Brighter text */
+    text-shadow: 0 0 5px rgba(170, 0, 255, 0.3); /* Subtle text shadow */
+    font-weight: 500; /* Medium weight for better visibility */
+}
+
+#stats, #motivation, #chat {
+    color: rgba(230, 230, 255, 0.95) !important; /* Brighter text for better visibility */
+    text-shadow: 0 0 5px rgba(170, 0, 255, 0.2); /* Subtle shadow for depth */
+}
+
+/* Enhance chat message visibility */
+.text-blue-600 {
+    color: rgb(255, 255, 255) !important; /* Brighter blue for user messages */
+    text-shadow: 0 0 4px rgba(100, 150, 255, 0.3);
+}
+
+.text-green-600 {
+    color: rgb(245, 255, 245) !important; /* Brighter green for bot messages */
+    text-shadow: 0 0 4px rgba(100, 255, 150, 0.3);
+}
+
+/* Enhance button text visibility */
+button {
+    font-weight: 600;
+    text-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
+}
+
+button:disabled {
+    opacity: 0.6;
+    text-shadow: none;
+}
+
+/* Chat interface styling for dark theme */
+#chat {
+    position: relative;
+    z-index: 15;
+    background-color: rgba(30, 30, 40, 0.7) !important; /* Dark chat background */
+    border: 1px solid rgba(170, 85, 255, 0.2); /* Subtle purple border */
+    box-shadow: inset 0 0 10px rgba(202, 33, 33, 0.531), 0 8px 16px rgba(0, 0, 0, 0.3); /* Enhanced depth */
+    transform: translateZ(5px);
+    transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
+}
+
+#chat:hover {
+    transform: translateZ(10px) scale(1.005);
+    box-shadow: inset 0 0 10px rgba(202, 33, 33, 0.531), 0 12px 24px rgba(0, 0, 0, 0.4);
+}
+
+/* Beluga thinking animation */
+.thinking-animation {
+    font-style: italic;
+    opacity: 0.9;
+    color: rgba(180, 130, 255, 1) !important; /* Brighter purple for thinking text */
+    text-shadow: 0 0 5px rgba(170, 0, 255, 0.3); /* Subtle glow effect */
+}
+
+.dot-animation {
+    display: inline-block;
+    animation: dotAnimation 1.5s infinite;
+}
+
+.dot-animation:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.dot-animation:nth-child(2) {
+    animation-delay: 0.3s;
+}
+
+.dot-animation:nth-child(3) {
+    animation-delay: 0.6s;
+}
+
+@keyframes dotAnimation {
+    0% { opacity: 0.2; transform: translateY(0); }
+    50% { opacity: 1; transform: translateY(-2px); }
+    100% { opacity: 0.2; transform: translateY(0); }
+}
+
+/* Chat header styling - highlight Beluga name */
+.content-container h2.beluga-chat-header {
+    color: rgba(170, 85, 255, 1) !important; /* Brighter purple for Beluga header */
+    text-shadow: 0 0 5px rgba(170, 0, 255, 0.3); /* Subtle glow effect */
+    font-weight: 700; /* Make it bolder */
+}
+
+/* Chat message styling */
+#chat .text-left {
+    color: rgb(98, 255, 0) !important; /* Brighter green for bot messages */
+}
+
+#chat .text-right {
+    color: rgb(255, 255, 255) !important; /* Brighter blue for user messages */
+}
+
+/* Input field styling */
+input[type="text"] {
+    background-color: rgba(30, 30, 40, 0.7) !important;
+    color: rgba(255, 255, 255, 0.9) !important;
+    border: 1px solid rgba(170, 85, 255, 0.3) !important;
+}
+
+input[type="text"]:focus {
+    box-shadow: 0 0 0 3px rgba(170, 85, 255, 0.3) !important;
+    outline: none !important;
+}
+
+input[type="text"]::placeholder {
+    color: rgba(200, 200, 255, 0.5) !important;
+}
+
+/* 3D depth effect for buttons */
+button {
+    position: relative;
+    z-index: 20;
+    transform: translateZ(15px);
+    transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1) !important;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3), 0 1px 3px rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(255, 255, 255, 0.1) !important;
+}
+
+button:not([disabled]):hover {
+    transform: translateY(-2px) translateZ(0);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.4), 0 1px 3px rgba(0, 0, 0, 0.3) !important;
+}
+
+button:not([disabled]):active {
+    transform: translateY(1px) translateZ(0);
+}
+
+/* Responsive adjustments with performance optimizations */
+@media (max-width: 768px) {
+    .content-container {
+        margin: 1rem;
+        padding: 1rem;
+    }
+    
+    /* Simplify effects on mobile for better performance */
+    .content-container {
+        backdrop-filter: none; /* Disable blur on mobile for better performance */
+        -webkit-backdrop-filter: none;
+        background-color: rgba(0, 0, 0, 0.95); /* More solid dark background instead */
+    }
+    
+    /* Fix for chat input container on mobile devices */
+    #chat {
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+    
+    /* Ensure chat input and button stay within container */
+    .flex.gap-2 {
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+        flex-wrap: nowrap;
+    }
+    
+    /* Make chat input responsive */
+    #chatInput {
+        width: 100%;
+        min-width: 0; /* Allow flex item to shrink below content size */
+        box-sizing: border-box;
+    }
+    
+    /* Ensure send button doesn't overflow */
+    #sendBtn {
+        flex-shrink: 0;
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+    }
+}
